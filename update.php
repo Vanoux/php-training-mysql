@@ -73,9 +73,9 @@ if(isset($_POST['name']) && isset( $_POST['difficulty']) && isset($_POST['distan
 	
 	$name = htmlspecialchars($_POST['name']);
 	$difficulty = htmlspecialchars($_POST['difficulty']);
-	$distance = filter_var($_POST['distance'], FILTER_SANITIZE_NUMBER_IN);
+	$distance = ($_POST['distance']);
 	$duration = htmlspecialchars($_POST['duration']);
-	$height = filter_var($_POST['height_difference'], FILTER_SANITIZE_NUMBER_IN);
+	$height = ($_POST['height_difference']);
     $available = htmlspecialchars($_POST['available']);
 
 	try{
