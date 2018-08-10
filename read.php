@@ -10,11 +10,9 @@
 </head>
 
 <body>
-  <?php
-      require "./dbConnect.php";
-      ?>
+  <?php require "./dbConnect.php";?>
     <?php
-      //test
+      //test requete
       // try {
       //   foreach($pdo->query('SELECT * FROM hiking') as $row){
       //     print_r($row);
@@ -28,6 +26,7 @@
 
       <!-- Afficher la liste des randonnées -->
       <h1 class="bg-dark text-white text-center display-3">Liste des randonnées</h1>
+      
       <table class="table">
         <thead class="thead-light">
           <tr>

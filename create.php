@@ -12,7 +12,7 @@
       ?>
 
 	<a href="./read.php">Liste des données</a>
-	<h1>Ajouter</h1>
+	<h1>Ajouter une Randonnée</h1>
 	<form action="./create.php" method="post">
 		<div>
 			<label for="name">Name</label>
@@ -46,7 +46,7 @@
 	</form>
 
 <?php
-
+// Remplissage de la table (ajout des rando)
 
 if(isset($_POST['name']) && isset( $_POST['difficulty']) && isset($_POST['distance']) && isset($_POST['duration']) && isset($_POST['height_difference'])){
 	$name = $_POST['name'];
