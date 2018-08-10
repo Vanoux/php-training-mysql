@@ -68,7 +68,7 @@
         echo '<td>'.$row["distance"].'</td>';
         echo '<td>'.$row["duration"].'</td>';
         echo '<td>'.$row["height_difference"].'</td>';
-        //echo '<td>'.$row["available"].'</td>';
+        echo '<td>'.$row["available"].'</td>';
 
         echo '</tr>';
           }

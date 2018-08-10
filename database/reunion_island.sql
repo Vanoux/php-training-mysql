@@ -30,5 +30,6 @@ CREATE TABLE IF NOT EXISTS `hiking` (
   `distance` int(11) NOT NULL COMMENT 'in km',
   `duration` time NOT NULL,
   `height_difference` int(6) NOT NULL COMMENT 'in m',
+  `available` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;

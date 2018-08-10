@@ -3,6 +3,8 @@
 <head>
 	<meta charset="utf-8">
 	<title>Ajouter une randonnée</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
 	<link rel="stylesheet" href="css/basics.css" media="screen" title="no title" charset="utf-8">
 </head>
 
@@ -11,12 +13,12 @@
       require "./dbConnect.php";
       ?>
 
-	<a href="./read.php">Liste des données</a>
-	<h1>Ajouter une Randonnée</h1>
+	<a href="./read.php">Liste des Randonnées</a>
+	<h1 class="bg-dark text-white text-center display-4">Ajouter une Randonnée</h1>
 	<form action="./create.php" method="post">
 		<div>
 			<label for="name">Name</label>
-			<input type="text" name="name" value="" require>
+			<input type="text" name="name" value="" required>
 		</div>
 
 		<div>
@@ -31,16 +33,20 @@
 		</div>
 		
 		<div>
-			<label for="distance">Distance</label>
-			<input type="text" name="distance" value="">
+			<label for="distance">Distance (en km)</label>
+			<input type="text" name="distance" value="" required>
 		</div>
 		<div>
-			<label for="duration">Durée</label>
-			<input type="duration" name="duration" value="">
+			<label for="duration">Durée (en hh:mm:ss)</label>
+			<input type="duration" name="duration" value="" required>
 		</div>
 		<div>
-			<label for="height_difference">Dénivelé</label>
-			<input type="text" name="height_difference" value="">
+			<label for="height_difference">Dénivelé (en mètre)</label>
+			<input type="text" name="height_difference" value="" required>
+		</div>
+		<div>
+			<label for="available">Disponible</label>
+			<input type="text" name="available" value="" required>
 		</div>
 		<button type="submit" name="button">Envoyer</button>
 	</form>
@@ -48,19 +54,19 @@
 <?php
 // Remplissage de la table (ajout des rando)
 
-if(isset($_POST['name']) && isset( $_POST['difficulty']) && isset($_POST['distance']) && isset($_POST['duration']) && isset($_POST['height_difference'])){
-	$name = $_POST['name'];
-	$difficulty = $_POST['difficulty'];
-	$distance = $_POST['distance'];
-	$duration = $_POST['duration'];
-	$height = $_POST['height_difference'];
-	//$available = $_POST['available'];
+if(isset($_POST['name']) && isset( $_POST['difficulty']) && isset($_POST['distance']) && isset($_POST['duration']) && isset($_POST['height_difference']) && isset($_POST['available'])){
+	$name = htmlspecialchars($_POST['name']);
+	$difficulty = htmlspecialchars($_POST['difficulty']);
+	$distance = filter_var($_POST['distance'],FILTER_SANITIZE_NUMBER_INT);
+	$duration = htmlspecialchars($_POST['duration']);
+	$height = filter_var($_POST['height_difference'], FILTER_SANITIZE_NUMBER_INT);
+	$available = htmlspecialchars($_POST['available']);
 
 
 
 	try{
 
-		$liste = $pdo->prepare("INSERT INTO hiking (name, difficulty, distance, duration, height_difference) Values('".$name."','".$difficulty."',".$distance.",'".$duration."',".$height.')' );
+		$liste = $pdo->prepare("INSERT INTO hiking (name, difficulty, distance, duration, height_difference, available) Values('".$name."','".$difficulty."',".$distance.",'".$duration."',".$height.",'".$available."');");
 		
 		if($liste->execute()){
 			echo "La randonnée a été ajoutée avec succès!";
@@ -77,9 +83,6 @@ if(isset($_POST['name']) && isset( $_POST['difficulty']) && isset($_POST['distan
 
 
 }
-
- 
-
 ?>
 </body>
 
