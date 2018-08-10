@@ -16,7 +16,7 @@
 	<form action="./create.php" method="post">
 		<div>
 			<label for="name">Name</label>
-			<input type="text" name="name" value="">
+			<input type="text" name="name" value="" require>
 		</div>
 
 		<div>
@@ -54,6 +54,8 @@ if(isset($_POST['name']) && isset( $_POST['difficulty']) && isset($_POST['distan
 	$distance = $_POST['distance'];
 	$duration = $_POST['duration'];
 	$height = $_POST['height_difference'];
+	//$available = $_POST['available'];
+
 
 
 	try{
@@ -67,8 +69,10 @@ if(isset($_POST['name']) && isset( $_POST['difficulty']) && isset($_POST['distan
 		}
 	}catch (PDOException $e){
 		print "Erreur:".$e->getMessage()."<br>";
+	}finally{
+		header('location: ./read.php');
 	}
-	echo $liste;
+	//echo $liste;
 	
 
 

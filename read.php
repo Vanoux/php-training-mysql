@@ -11,7 +11,7 @@
 
 <body>
   <?php require "./dbConnect.php";?>
-    <?php
+  <?php
       //test requete
       // try {
       //   foreach($pdo->query('SELECT * FROM hiking') as $row){
@@ -24,22 +24,41 @@
       // }
       ?>
 
-      <!-- Afficher la liste des randonnées -->
-      <h1 class="bg-dark text-white text-center display-3">Liste des randonnées</h1>
-      
-      <table class="table">
-        <thead class="thead-light">
-          <tr>
-            <th scope="col">#ID</th>
-            <th scope="col">NAME</th>
-            <th scope="col">DIFFICULTY</th>
-            <th scope="col">DISTANCE</th>
-            <th scope="col">DURATION</th>
-            <th scope="col">HEIGHT_DIFFERENCE</th>
-          </tr>
-        </thead>
+    <!-- Afficher et ajouter la liste des randonnées  -->
+    <h1 class="bg-dark text-white text-center display-3">Liste des randonnées</h1>
 
-        <tbody>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+          <li class="nav-item active">
+            <a class="nav-link text-success" href="./create.php">Ajouter une Randonnée</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link text-dark">Pour Modifier ou Supprimer une randonnée, cliquez dessus</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <table class="table">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">#ID</th>
+          <th scope="col">NAME</th>
+          <th scope="col">DIFFICULTY</th>
+          <th scope="col">DISTANCE</th>
+          <th scope="col">DURATION</th>
+          <th scope="col">HEIGHT_DIFFERENCE</th>
+          <th scope="col">AVAILABLE</th>
+
+        </tr>
+      </thead>
+
+      <tbody>
         <?php
         foreach($pdo->query('SELECT * FROM hiking') as $row){
         echo '<tr>';
@@ -49,6 +68,8 @@
         echo '<td>'.$row["distance"].'</td>';
         echo '<td>'.$row["duration"].'</td>';
         echo '<td>'.$row["height_difference"].'</td>';
+        //echo '<td>'.$row["available"].'</td>';
+
         echo '</tr>';
           }
         ?>

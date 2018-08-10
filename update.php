@@ -58,7 +58,7 @@ foreach($pdo->query('SELECT * FROM hiking WHERE id='.$id) as $row){
 
 	</form>
 
-<?php //https://sql.sh/cours/update
+<?php 
 
 include("./dbConnect.php");
 
@@ -69,7 +69,7 @@ if(isset($_POST['name']) && isset( $_POST['difficulty']) && isset($_POST['distan
 	$distance = $_POST['distance'];
 	$duration = $_POST['duration'];
 	$height = $_POST['height_difference'];
-
+    //$available = $_POST['available'];
 
 	try{
 		
@@ -86,11 +86,13 @@ if(isset($_POST['name']) && isset( $_POST['difficulty']) && isset($_POST['distan
 		}
 	}catch (PDOException $e){
 		print "Erreur:".$e->getMessage()."<br>";
-	} finally {
+	} finally{
 		header('location: ./read.php');
 	}
+		
 	
-}
+	
+} 
 ?>
  
 </body>
