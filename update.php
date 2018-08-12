@@ -9,7 +9,7 @@
 </head>
 <body>
 
-<?php
+<?php // Verifie que l'utilisateur est connecté
 session_start();
 if (!isset($_SESSION['login']) && !isset($_SESSION['pwd'])) {
 	header('Location: ./read.php');
@@ -19,7 +19,7 @@ if (!isset($_SESSION['login']) && !isset($_SESSION['pwd'])) {
 <?php
 require("./dbConnect.php");
 
-//Récupération de la rando choisie = prérempli dans le formulaire
+//Récupération de la rando choisie = en prérempli dans le formulaire
 $id = $_GET["id"];
 foreach($pdo->query('SELECT * FROM hiking WHERE id='.$id) as $row){
 	$name = $row['name'];
@@ -72,7 +72,7 @@ foreach($pdo->query('SELECT * FROM hiking WHERE id='.$id) as $row){
 
 	</form>
 
-<?php 
+<?php // modification d'une randonnée dans la bdd
 
 include("./dbConnect.php");
 
@@ -102,10 +102,7 @@ if(isset($_POST['name']) && isset( $_POST['difficulty']) && isset($_POST['distan
 		print "Erreur:".$e->getMessage()."<br>";
 	} finally{
 		header('location: ./read.php');
-	}
-		
-	
-	
+	}	
 } 
 ?>
  

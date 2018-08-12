@@ -1,7 +1,8 @@
-<?php
-    require './dbConnect.php';
-    //On vas interroger notre base de données afin de savoir si le visiteur qui se connecte est bien membre 
+<?php // AUTHENTIFICATION
 
+    require './dbConnect.php';
+
+    //On vas interroger notre base de données afin de savoir si le visiteur qui se connecte est bien membre 
     //On teste si nos variables sont définies
     if (isset($_POST['login']) && isset($_POST['pwd'])) {
 
@@ -19,20 +20,15 @@
     header ('location: read.php');
     	}
     	else {
-    // Le visiteur n'a pas été reconnu comme étant membre de notre site. On utilise alors un petit javascript lui signalant ce fait
-        //echo '<body onLoad="alert(\'Membre non reconnu...\')">';
-        // echo '<meta http-equiv="refresh" content="0;URL=./login.php">';
-
-        //puis on le redirige vers la page que l'on veut
+    // Le visiteur n'a pas été reconnu comme étant membre de notre site, on le redirige vers la page que l'on veut :
         header('Location: ./login.php');
         } 
     }
 } 
-
-// echo 'Les identifiants du formulaire ne sont pas enregistrées !';
 ?>
 
 <?php
+// tuto http://www.lephpfacile.com/cours/18-les-sessions
     //  On définit un login et un mot de passe de base pour tester notre exemple. Cependant, vous pouvez très bien interroger votre base de données afin de savoir si le visiteur qui se connecte est bien membre de votre site
     // $login_valide = "moi";
     // $pwd_valide = "lemien";

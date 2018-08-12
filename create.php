@@ -10,8 +10,6 @@
 
 <body>
 
-
-
 <?php require "./dbConnect.php"; ?>
 
 	<a href="./read.php">Liste des Randonnées</a>

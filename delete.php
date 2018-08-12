@@ -1,12 +1,12 @@
 <?php
-/**** Supprimer une randonnée ****/
 
-//authentification
+//authentification => verifie que l'utilisateur est connecté
 session_start();
 if (!isset($_SESSION['login']) && !isset($_SESSION['pwd'])) {
 	header('Location: ./read.php');
 }
 
+/**** Supprimer une randonnée (avec l'id) ****/
 require("./dbConnect.php");
 
 	$id = $_GET["id"];

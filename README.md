@@ -1,3 +1,5 @@
+# lien heroku => https://vaness-randoreunion.herokuapp.com
+
 > Ce repo doit être directement cloné dans votre répertoire apache (/var/www/html ou htdocs ou etc. )
 
 # PHP & MySQL

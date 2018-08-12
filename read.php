@@ -74,7 +74,7 @@
         echo '<td>'.$row["available"].'</td>';
 
         echo '</tr>';
-          }
+        }
         ?>
 
       </tbody>
