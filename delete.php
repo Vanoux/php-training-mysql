@@ -1,6 +1,13 @@
 <?php
 /**** Supprimer une randonnée ****/
-include("./dbConnect.php");
+
+//authentification
+session_start();
+if (!isset($_SESSION['login']) && !isset($_SESSION['pwd'])) {
+	header('Location: ./read.php');
+}
+
+require("./dbConnect.php");
 
 	$id = $_GET["id"];
 

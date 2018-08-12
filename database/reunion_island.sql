@@ -22,6 +22,7 @@ USE `reunion_island`;
 -- Structure de la table `hiking`
 --
 
+
 DROP TABLE IF EXISTS `hiking`;
 CREATE TABLE IF NOT EXISTS `hiking` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
@@ -33,3 +34,23 @@ CREATE TABLE IF NOT EXISTS `hiking` (
   `available` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+CREATE TABLE IF NOT EXISTS `user` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `username` varchar(255) NOT NULL,
+  `email` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `firstname` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `lastname` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `password` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+INSERT INTO hiking (name, difficulty, distance, duration, height_difference, available) VALUES('Le sommet du Piton Béthoune par le tour du Bonnet de Prêtre', 'Très difficile', 5.7, '4:00', 650);
+INSERT INTO hiking (name, difficulty, distance, duration, height_difference, available) VALUES('De la Mare à Joncs à Cilaos par le Kerveguen et le Gîte de la Caverne Dufour', 'Difficile', 19, '8:00', 1450);
+INSERT INTO hiking (name, difficulty, distance, duration, height_difference, available) VALUES('Le Sentier des Sources entre Cilaos et Bras Sec', 'Facile', 5.9, '1:15', 300);
+INSERT INTO hiking (name, difficulty, distance, duration, height_difference, available) VALUES('Le Dimitile depuis Bras Sec par le Kerveguen', 'Difficile', 24.5, '10:00', 1550);
+INSERT INTO hiking (name, difficulty, distance, duration, height_difference, available) VALUES('De Bras Sec au Bras de Cilaos par Palmiste Rouge', 'Moyen', 16.5, '5:30', 1000);
+
+INSERT INTO randoreunion.user (username, email, firstname, lastname, password) VALUES('vaness', 'van@gmail.com', 'van', 'ess', 'vaness');
+INSERT INTO randoreunion.user (username, email, firstname, lastname, password) VALUES('toto', 'toto@gmail.com', 'toto', 'delavega', 'toto');
+INSERT INTO randoreunion.user (username, email, firstname, lastname, password) VALUES('chipita', 'chipi@gmail.com', 'chi', 'pita', 'chipita');

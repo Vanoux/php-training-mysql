@@ -40,6 +40,9 @@
           <li class="nav-item active">
             <a class="nav-link text-dark">Pour Modifier ou Supprimer une randonnée, cliquez dessus</a>
           </li>
+          <li class="nav-item active">
+            <a class="nav-link text-danger" href="./login.php">S'authentifier</a>
+          </li>
         </ul>
       </div>
     </nav>

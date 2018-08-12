@@ -9,9 +9,10 @@
 </head>
 
 <body>
-	<?php
-      require "./dbConnect.php";
-      ?>
+
+
+
+<?php require "./dbConnect.php"; ?>
 
 	<a href="./read.php">Liste des Randonnées</a>
 	<h1 class="bg-dark text-white text-center display-4">Ajouter une Randonnée</h1>
@@ -57,9 +58,9 @@
 if(isset($_POST['name']) && isset( $_POST['difficulty']) && isset($_POST['distance']) && isset($_POST['duration']) && isset($_POST['height_difference']) && isset($_POST['available'])){
 	$name = htmlspecialchars($_POST['name']);
 	$difficulty = htmlspecialchars($_POST['difficulty']);
-	$distance = filter_var($_POST['distance'],FILTER_SANITIZE_NUMBER_INT);
+	$distance = ($_POST['distance']);
 	$duration = htmlspecialchars($_POST['duration']);
-	$height = filter_var($_POST['height_difference'], FILTER_SANITIZE_NUMBER_INT);
+	$height = ($_POST['height_difference']);
 	$available = htmlspecialchars($_POST['available']);
 
 
@@ -78,10 +79,6 @@ if(isset($_POST['name']) && isset( $_POST['difficulty']) && isset($_POST['distan
 	}finally{
 		header('location: ./read.php');
 	}
-	//echo $liste;
-	
-
-
 }
 ?>
 </body>

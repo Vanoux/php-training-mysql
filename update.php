@@ -10,7 +10,14 @@
 <body>
 
 <?php
-include("./dbConnect.php");
+session_start();
+if (!isset($_SESSION['login']) && !isset($_SESSION['pwd'])) {
+	header('Location: ./read.php');
+}
+?>
+
+<?php
+require("./dbConnect.php");
 
 //Récupération de la rando choisie = prérempli dans le formulaire
 $id = $_GET["id"];
